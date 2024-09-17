@@ -1,0 +1,21 @@
+<div class="carousel-container">
+  <div #carousel class="carousel" (scroll)="onScroll($event)">
+    <div
+      class="carousel-item"
+      *ngFor="let product of products; let i = index"
+      [ngClass]="{ active: selectedProduct === i }"
+      (click)="selectProduct(i)"
+    >
+      <img [src]="product.image" alt="Product Image" />
+    </div>
+  </div>
+  <div class="carousel-controls">
+    <button
+      *ngFor="let product of products; let i = index"
+      (click)="selectProduct(i)"
+      [class.active]="selectedProduct === i"
+    >
+      {{ product.name }}
+    </button>
+  </div>
+</div>
